@@ -97,10 +97,10 @@ function myFunction() {
     alert("Please fill all the fields")
   }
 
-  //loading part
+  loading part
 
-//   $(window).load(function(){
-//     $("#loader").fadeOut(1000);
-//   })
+  $(window).load(function(){
+    $("#loader").fadeOut(1000);
+  })
 
  
