@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto-Currency</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./images/bitcoin-3222162__340.webp">
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div id="loader"></div>
+    <div class="head">
+        <div>
+            <img class="ms-3" width="130px" height="70px" src="./images/Png Gif 8sec.gif">
+        </div>
+        <div id="second">
+            <div class=" w-50  mt-3">
+                <div class="input-group">
+                    <span class="input-group-text"> <img width="20px" height="20px" src="./images/search.jfif"></span>
+                    <input onkeyup="myFunction()" id="searchbox" class="form-control" type="text"
+                        placeholder="Search here">
+                </div>
+            </div>
+            <div id="third" class="me-1 mt-3 ">
+                <button class="btn btn-danger" onclick="loginClick()">Login</button>
+                <button class="btn btn-success" onclick="signupClick()">Sign up</button>
+                <!-- <button class="btn btn-info">Filter</button> -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Filter
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Price Range</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="range">
+                        <input id="minvalue" class="form-control w-50" type="number" placeholder="$0" />
+                        <p class="m-1">to</p>
+                        <input id="maxvalue" class="form-control w-50" type="number" placeholder="$99,999" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="rangeclick()" type="button" class="btn btn-primary">Check Range</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover" id="mytable">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Current Price</th>
+                <th>Change %(24h)</th>
+                <th>Market_Cap</th>
+                <th>Total Volume</th>
+            </tr>
+        </thead>
+        <tbody id="bodydata"></tbody>
+    </table>
+    <h2 id="noresults" style="text-align: center;">No results found</h2>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

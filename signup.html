@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>SignUp Page</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./images/bitcoin-3222162__340.webp">
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div id="loader"></div>
+    <div id="maindiv">
+        <form action="./index.html">
+            <h3>Sign-Up</h3>
+            <dl class="box">
+                <dt>Name</dt>
+                <dd><input class="form-control w-100" type="name" id="name" placeholder="Enter name"
+                        onkeypress="handle(event)"> </dd>
+                <dt>Email</dt>
+                <dd><input class="form-control w-100" type="email" id="email" placeholder="Enter email"
+                        onkeypress="handle(event)"> </dd>
+                <dt>Password</dt>
+                <dd><input class="form-control w-100" type="password" id="password" placeholder="Enter password"
+                        onkeypress="handle(event)"> </dd>
+                <dt>Confirm Password</dt>
+                <dd><input class="form-control w-100" type="password" id="password" placeholder="confirm password"
+                        onkeypress="handle(event)"> </dd>
+            </dl>
+        </form>
+        <div id="btn11">
+            <button class=" btn btn-primary  " onclick="signup()">Submit</button>
+            <button class=" btn btn-danger  " onclick="cancelclick()">Cancel</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
