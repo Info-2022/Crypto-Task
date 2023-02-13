@@ -31,6 +31,7 @@ fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd").then(
     }).then(data => {
       
         data.forEach((e) => {
+             var cp=e.price_change_percentage_24h;
             tbody.innerHTML +=
                 `<tr>
                     <td>${e.market_cap_rank}</td>
@@ -39,7 +40,7 @@ fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd").then(
                     <td>${e.name}</td>
                     <td>${e.symbol}</td>
                     <td>${e.current_price}</td>
-                    <td id="per">${Math.round(e.price_change_percentage_24h)}%</td>
+                    <td style="color:${(Math.round(cp)>=0) ? 'green' : 'red'}">${Math.round(cp)}%</td>
                     <td>${e.market_cap}</td>
                     <td>${e.total_volume}</td>`
         });
