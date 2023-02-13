@@ -97,8 +97,6 @@ function myFunction() {
     alert("Please fill all the fields")
   }
 
-  loading part
-
   $(window).load(function(){
     $("#loader").fadeOut(1000);
   })
