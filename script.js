@@ -38,10 +38,10 @@ fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd").then(
                     <td><img height="40px" width="40px" src="${e.image}"></td>
                     <td>${e.name}</td>
                     <td>${e.symbol}</td>
-                    <td>$${e.current_price}</td>
+                    <td>${e.current_price}</td>
                     <td id="per">${Math.round(e.price_change_percentage_24h)}%</td>
-                    <td>$${e.market_cap}</td>
-                    <td>$${e.total_volume}</td>`
+                    <td>${e.market_cap}</td>
+                    <td>${e.total_volume}</td>`
         });
        
 
@@ -96,6 +96,36 @@ function myFunction() {
   function signup(){
     alert("Please fill all the fields")
   }
+
+  // Filtering
+  function rangeclick(){
+    var minValue = document.getElementById('minvalue').value;
+    var maxValue = document.getElementById('maxvalue').value;
+
+    var noResult = document.querySelector('h2')
+    let found  = false;
+
+    var table = document.getElementById("bodydata");
+    var tr = table.getElementsByTagName("tr");
+    for(let i=0;i<table.rows.length;i++){
+      tdPrice = parseInt(tr[i].getElementsByTagName("td")[5].innerText);
+    
+      if((tdPrice >= minValue) && (tdPrice <= maxValue)){
+        // console.log(tdPrice)
+        tr[i].style.display = "";
+          found = true
+        } else {
+          tr[i].style.display = "none";
+        }    
+    }
+    if(found){
+      noResult.style.display='none'
+    } else {
+      noResult.style.display=''
+    } 
+
+  }
+  // loading part
 
   $(window).load(function(){
     $("#loader").fadeOut(1000);
