@@ -10,9 +10,9 @@ function handle(e){
 
 const tbody = document.querySelector("#bodydata");
 
-setInterval(fetching,1000);
+//setInterval(fetching,1000);
 
-function fetching(){
+//function fetching(){
     fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd").then(
     res => {
         return res.json();
@@ -33,7 +33,7 @@ function fetching(){
                     <td>${e.total_volume}</td>`
         });
     })
-}
+//}
 
 function ff(cp){
   if(Math.round(cp)>=0){
