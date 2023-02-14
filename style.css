@@ -20,7 +20,7 @@
     justify-content: center;
     border-radius: 30px;
     background-color: rgb(218, 213, 213);
-    box-shadow: 6px 6px 10px rgb(7, 184, 197);
+    box-shadow:6px 6px 10px white;
 
 }
 
@@ -38,7 +38,7 @@
     display: flex;
     justify-content: space-between;
     /* background-color: rgb(69, 192, 230); */
-    background-color: rgb(233, 185, 97);
+    background: linear-gradient(to right, rgb(114, 2, 24), rgb(133, 148, 2), rgb(164, 166, 247));
     height: "80px";
     margin-bottom: 10px;
     padding: 15px;
@@ -77,5 +77,31 @@
     color: blue;
     text-decoration: underline;
 }
+.main {
+    background-color: rgb(255, 236, 213);
+}
 
+#login:hover,
+#signup:hover,
+#filter:hover {
+    background-color: black;
+}
+
+.loginbody {
+    background-image: url(./images/loginback.jpg);
+}
+
+.signupbody {
+    background-image: url(./images/signupback.webp);
+}
+
+#cancel:hover {
+    background-color: rgb(121, 5, 5);
+}
+
+#loginsubmit:hover,
+#signupsubmit:hover,
+#checkrange:hover {
+    background-color: rgb(5, 5, 109);
+}
 
