@@ -2,22 +2,9 @@
 
 function handle(e){
     if(e.keyCode === 13 ){
-        submitclick();
+        btnClick("loginsubmit");
     }
 }
-
-
-function submitclick() {
-
-    var password = document.getElementById("password").value;
-    var email = document.getElementById("email").value;
-
-    if (email == "ram@gmail.com" && password == "Ram@123") {
-        location.replace("./index.html");
-    } else {
-        alert("Please enter valid username/password");
-    }
-} 
 
 // crypto page
 
@@ -40,14 +27,21 @@ fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd").then(
                     <td>${e.name}</td>
                     <td>${e.symbol}</td>
                     <td>${e.current_price}</td>
-                    <td style="color:${(Math.round(cp)>=0) ? 'green' : 'red'}">${Math.round(cp)}%</td>
+                    <td style="color:${(Math.round(cp)>=0) ? 'green' : 'red'}">${ff(Math.round(cp))}%</td>
                     <td>${e.market_cap}</td>
                     <td>${e.total_volume}</td>`
         });
        
 
     })
-
+function ff(cp){
+  if(cp>=0){
+    return `<i class="fa-solid fa-caret-up"></i> ${cp}`;
+  }
+  else{
+    return `<i class="fa-solid fa-caret-down"></i> ${cp}`;
+  }
+}
     
 // Search Functionality
 
@@ -59,7 +53,7 @@ function myFunction() {
     tr = table.getElementsByTagName("tr");
 
 
-    noResult = document.querySelector('h2')
+    noResult = document.querySelector('#noresults')
 
     let found  = false;
 
@@ -75,27 +69,36 @@ function myFunction() {
         }    
     }
     if(found){
-      noResult.style.display='none'
+      noResult.innerHTML=''
     } else {
-      noResult.style.display=''
+      noResult.innerHTML='No Results Found'
     }
   }
+                     //Button Functionality  
 
-  function loginClick() {
-  
-    location.replace("./login.html");
+  function btnClick(id){
+      if (id === "signup") {
+        location.replace("./signup.html");
+      }
+      else if (id === "login") {
+        location.replace("./login.html");
+      }
+      else if (id === "loginsubmit") {
+        var password = document.getElementById("password").value;
+        var email = document.getElementById("email").value;
     
-  }
-  function cancelclick(){
-   
-    location.replace("./index.html");
-  }
-
-  function signupClick(){
-    location.replace("./signup.html");
-  }
-  function signup(){
-    alert("Please fill all the fields")
+        if (email == "ram@gmail.com" && password == "Ram@123") {
+            location.replace("./index.html");
+        } else {
+            alert("Please enter valid username/password");
+        }
+      }
+      else if (id === "cancel") {
+        location.replace("./index.html");
+      }
+      else if (id === "signupsubmit") {
+        alert("Please fill all the fields")
+      }
   }
 
   // Filtering
@@ -103,7 +106,7 @@ function myFunction() {
     var minValue = document.getElementById('minvalue').value;
     var maxValue = document.getElementById('maxvalue').value;
 
-    var noResult = document.querySelector('h2')
+    var noResult = document.querySelector('#noresults')
     let found  = false;
 
     var table = document.getElementById("bodydata");
@@ -120,10 +123,10 @@ function myFunction() {
         }    
     }
     if(found){
-      noResult.style.display='none'
+      noResult.innerHTML=''
     } else {
-      noResult.style.display=''
-    } 
+      noResult.innerHTML='No Results Found'
+    }
 
   }
   // loading part
