@@ -14,11 +14,13 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./images/bitcoin-3222162__340.webp">
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="./script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="container-fluid">
-    <div id="loader"></div>
+    <!-- <div id="loader"></div> -->
     <div class="head">
         <div>
             <img class="ms-3" width="130px" height="70px" src="./images/Png Gif 8sec.gif">
@@ -32,10 +34,11 @@
                 </div>
             </div>
             <div id="third" class="me-1 mt-3 ">
-                <button class="btn btn-danger" onclick="loginClick()">Login</button>
-                <button class="btn btn-success" onclick="signupClick()">Sign up</button>
+                <button class="btn btn-danger" id="login" onclick="btnClick(this.id)">Login</button>
+                <button class="btn btn-success" id="signup" onclick="btnClick(this.id)">Sign up</button>
                 <!-- <button class="btn btn-info">Filter</button> -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" id="filter" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
                     Filter
                 </button>
             </div>
@@ -58,7 +61,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button onclick="rangeclick()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Check Range</button>
+                    <button onclick="rangeclick()" type="button" class="btn btn-primary">Check Range</button>
                 </div>
             </div>
         </div>
@@ -82,8 +85,8 @@
     </table>
     <h2 id="noresults" style="text-align: center;"></h2>
 
-    
-    
+    <script src="./script.js"></script>
+
 </body>
 
 </html>
