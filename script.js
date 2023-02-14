@@ -27,7 +27,7 @@ fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd").then(
                     <td>${e.name}</td>
                     <td>${e.symbol}</td>
                     <td>${e.current_price}</td>
-                    <td style="color:${(Math.round(cp)>=0) ? 'green' : 'red'}">${ff(Math.round(cp))}%</td>
+                    <td style="color:${(Math.round(cp)>=0) ? 'green' : 'red'}">${ff(cp)}%</td>
                     <td>${e.market_cap}</td>
                     <td>${e.total_volume}</td>`
         });
@@ -35,7 +35,7 @@ fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd").then(
 
     })
 function ff(cp){
-  if(cp>=0){
+  if(Math.round(cp)>=0){
     return `<i class="fa-solid fa-caret-up"></i> ${cp}`;
   }
   else{
