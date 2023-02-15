@@ -25,8 +25,9 @@
 
 #note {
     text-align: center;
-    font-size: 12px;
-    margin-top: 10px;
+    font-size: 15px;
+    margin-top: 13px;
+    color: white;
 }
 
 #maindiv h3 {
@@ -80,10 +81,20 @@
     background-color: rgb(255, 236, 213);
 }
 
-#login:hover,
-#signup:hover,
+#login:hover {
+    background-color: rgb(253, 252, 252);
+    color: orangered;
+}
+
+#signup:hover {
+    background-color: rgb(253, 252, 252);
+    color: green;
+}
+
 #filter:hover {
-    background-color: black;
+    background-color: rgb(253, 252, 252);
+    color: blue;
+
 }
 
 .loginbody {
