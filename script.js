@@ -104,35 +104,44 @@ function myFunction() {
 
   // Filtering
   function rangeclick(){
+
     var minValue = document.getElementById('minvalue').value;
     var maxValue = document.getElementById('maxvalue').value;
-    
-    if(minValue !== "" && maxValue !== ""){
-        
-        var noResult = document.querySelector('#noresults')
-        let found  = false;
-
-        var table = document.getElementById("bodydata");
-        var tr = table.getElementsByTagName("tr");
-        for(let i=0;i<table.rows.length;i++){
-          tdPrice = parseInt(tr[i].getElementsByTagName("td")[5].innerText);
-
-          if((tdPrice >= minValue) && (tdPrice <= maxValue)){
-            // console.log(tdPrice)
-            tr[i].style.display = "";
-              found = true
-            } else {
-              tr[i].style.display = "none";
-            }    
-        }
-        if(found){
-          noResult.innerHTML=''
-        } else {
-          noResult.innerHTML='No Results Found'
-        }
+  
+    if(parseInt(maxValue) < parseInt(minValue)){
+      alert('second field must be big');
     }
 
+    else if(minValue !='' && maxValue !=''){
+    var noResult = document.querySelector('#noresults')
+    let found  = false;
+    
+
+    var table = document.getElementById("bodydata");
+    var tr = table.getElementsByTagName("tr");
+    for(let i=0;i<table.rows.length;i++){
+      tdPrice = parseInt(tr[i].getElementsByTagName("td")[5].innerText);
+    
+      if((tdPrice >= minValue) && (tdPrice <= maxValue)){
+        // console.log(tdPrice)
+        tr[i].style.display = "";
+          found = true;
+        } else {
+          tr[i].style.display = "none";
+        }    
+    }
+    if(found){
+      noResult.innerHTML=''
+    } else {
+      noResult.innerHTML='No Results Found'
+    }
+    
   }
+  
+  else{
+    alert('Fill all the filelds');
+  }
+}
   // loading part
 
 //   $(window).load(function(){
