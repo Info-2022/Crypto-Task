@@ -106,27 +106,30 @@ function myFunction() {
   function rangeclick(){
     var minValue = document.getElementById('minvalue').value;
     var maxValue = document.getElementById('maxvalue').value;
-
-    var noResult = document.querySelector('#noresults')
-    let found  = false;
-
-    var table = document.getElementById("bodydata");
-    var tr = table.getElementsByTagName("tr");
-    for(let i=0;i<table.rows.length;i++){
-      tdPrice = parseInt(tr[i].getElementsByTagName("td")[5].innerText);
     
-      if((tdPrice >= minValue) && (tdPrice <= maxValue)){
-        // console.log(tdPrice)
-        tr[i].style.display = "";
-          found = true
+    if(minValue !== "" && maxValue !== ""){
+        
+        var noResult = document.querySelector('#noresults')
+        let found  = false;
+
+        var table = document.getElementById("bodydata");
+        var tr = table.getElementsByTagName("tr");
+        for(let i=0;i<table.rows.length;i++){
+          tdPrice = parseInt(tr[i].getElementsByTagName("td")[5].innerText);
+
+          if((tdPrice >= minValue) && (tdPrice <= maxValue)){
+            // console.log(tdPrice)
+            tr[i].style.display = "";
+              found = true
+            } else {
+              tr[i].style.display = "none";
+            }    
+        }
+        if(found){
+          noResult.innerHTML=''
         } else {
-          tr[i].style.display = "none";
-        }    
-    }
-    if(found){
-      noResult.innerHTML=''
-    } else {
-      noResult.innerHTML='No Results Found'
+          noResult.innerHTML='No Results Found'
+        }
     }
 
   }
