@@ -135,8 +135,8 @@ function myFunction() {
   }
   // loading part
 
-  $(window).load(function(){
-    $("#loader").fadeOut(1000);
-  })
+//   $(window).load(function(){
+//     $("#loader").fadeOut(1000);
+//   })
 
  
