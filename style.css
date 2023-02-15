@@ -38,12 +38,18 @@
     display: flex;
     justify-content: space-between;
     /* background-color: rgb(69, 192, 230); */
-    background: linear-gradient(to right, rgb(114, 2, 24), rgb(133, 148, 2), rgb(164, 166, 247));
+/*     background: linear-gradient(to right, rgb(114, 2, 24), rgb(133, 148, 2), rgb(164, 166, 247)); */
+     background-image: url(./images/backg.avif);
+    background-size: 1500px;
+    background-repeat: no-repeat;
     height: "80px";
     margin-bottom: 10px;
     padding: 15px;
     position: sticky;
     top: 0px;
+}
+.crypto{
+    margin-left: 300px;
 }
 
 #second {
