@@ -52,6 +52,10 @@
     margin-left: 300px;
 }
 
+input#searchbox {
+    cursor: pointer;
+}
+
 #second {
     display: flex;
     justify-content: space-between;
