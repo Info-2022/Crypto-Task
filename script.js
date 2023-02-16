@@ -27,10 +27,10 @@ const tbody = document.querySelector("#bodydata");
                     <td><img height="40px" width="40px" src="${e.image}"></td>
                     <td>${e.name}</td>
                     <td>${e.symbol}</td>
-                    <td>${e.current_price}</td>
+                    <td>$${e.current_price}</td>
                     <td style="color:${(Math.round(cp)>=0) ? 'green' : 'red'}">${ff(cp)}%</td>
-                    <td>${e.market_cap}</td>
-                    <td>${e.total_volume}</td>`
+                    <td>$${e.market_cap}</td>
+                    <td>$${e.total_volume}</td>`
         });
     })
 //}
@@ -120,7 +120,8 @@ function myFunction() {
     var table = document.getElementById("bodydata");
     var tr = table.getElementsByTagName("tr");
     for(let i=0;i<table.rows.length;i++){
-      tdPrice = parseInt(tr[i].getElementsByTagName("td")[5].innerText);
+      tdPrice = tr[i].getElementsByTagName("td")[5].innerText;
+      tdPrice=parseInt(tdPrice.slice(1,tdPrice.length));
     
       if((tdPrice >= minValue) && (tdPrice <= maxValue)){
         // console.log(tdPrice)
