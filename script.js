@@ -6,43 +6,92 @@ function handle(e){
     }
 }
 
-// crypto page
+// crypto page API fetch
 
-const tbody = document.querySelector("#bodydata");
+const tbody = document.getElementById("bodydata");
 
-//setInterval(fetching,1000);
+fetch(new Request("https://api.livecoinwatch.com/coins/list"), {
+  method: "POST",
+  headers: new Headers({
+    "content-type": "application/json",
+    "x-api-key": "a4c75585-1604-4b98-bfe0-f70811c62424",
+  }),
+  body: JSON.stringify({
+    currency: "USD",
+    sort: "rank",
+    order: "ascending",
+    offset: 0,
+    limit: 50,
+    meta: true,
+  }),
+}).
+ then(res => res.json()).then(data => {
 
-//function fetching(){
-    fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd").then(
-    res => {
-        return res.json();
-    }).then(data => {
-      
-        data.forEach((e) => {
-             var cp=e.price_change_percentage_24h;
-            tbody.innerHTML +=
-                `<tr>
-                    <td>${e.market_cap_rank}</td>
-                    <td id="ancher"><a href="https://coinmarketcap.com/currencies/${e.id}/">${e.id}</a></td>
-                    <td><img height="40px" width="40px" src="${e.image}"></td>
-                    <td>${e.name}</td>
-                    <td>${e.symbol}</td>
-                    <td>$${e.current_price}</td>
-                    <td style="color:${(Math.round(cp)>=0) ? 'green' : 'red'}">${ff(cp)}%</td>
-                    <td>$${e.market_cap}</td>
-                    <td>$${e.total_volume}</td>`
-        });
-    })
-//}
+      data.forEach(e=>{
+        tbody.innerHTML+=`
+        <tr>
+        <td>${e.rank}</td>
+        <td>${e.name}</td>
+        <td><img height="40px" width="40px" src="${e.png32}"></td>
+        <td>${e.code}</td>
+        <td>$${e.rate}</td>
+        <td>$${e.volume}</td>
+        <td>$${e.cap}</td>
+        <td>${e.delta.hour}%</td>
+        <td>${e.delta.day}%</td>
+        <td>${e.delta.week}%</td>
+        </tr>
+        
+        `
+      } )     
+});
 
-function ff(cp){
-  if(Math.round(cp)>=0){
-    return `<i class="fa-solid fa-caret-up"></i> ${cp}`;
-  }
-  else{
-    return `<i class="fa-solid fa-caret-down"></i> ${cp}`;
-  }
+// Price updation code
+
+const getBTC = async () => {
+
+    fetch(new Request("https://api.livecoinwatch.com/coins/list"), {
+      method: "POST",
+      headers: new Headers({
+        "content-type": "application/json",
+        "x-api-key": "a4c75585-1604-4b98-bfe0-f70811c62424",
+      }),
+      body: JSON.stringify({
+        currency: "USD",
+        sort: "rank",
+        order: "ascending",
+        offset: 0,
+        limit: 50,
+        meta: true,
+      }),
+    }).then(res => res.json()).then(data => {
+        var count = 0;
+        data.forEach((e) =>{
+          tbody.rows[count].getElementsByTagName("td")[4].innerText = `$${e.rate}`;
+          tbody.rows[count].getElementsByTagName("td")[5].innerText = `$${e.volume}`;
+          tbody.rows[count].getElementsByTagName("td")[6].innerText = `$${e.cap}`;
+          tbody.rows[count].getElementsByTagName("td")[7].innerText = `${e.delta.hour}%`;
+          tbody.rows[count].getElementsByTagName("td")[8].innerText = `${e.delta.day}%`;
+          tbody.rows[count].getElementsByTagName("td")[9].innerText = `${e.delta.week}%`;
+          count++;
+        })
+    });
+ 
 }
+
+setInterval(function () {
+  getBTC();
+}, 2000);
+
+
+// function ff(cp){
+//   if(Math.round(cp)>=0){
+//     return `<i class="fa-solid fa-caret-up"></i> ${cp}`;
+//   }
+//   else{
+//     return `<i class="fa-solid fa-caret-down"></i> ${cp}`;
+//   }
+// }
     
 // Search Functionality
 
