@@ -125,3 +125,14 @@ input#searchbox {
     background-color: rgb(5, 5, 109);
 }
 
+header {
+    position: sticky;
+    top: 0px;
+}
+
+section {
+
+    height: 460px;
+    overflow: scroll;
+}
+
