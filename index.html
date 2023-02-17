@@ -17,36 +17,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <script src="./script.js" defer></script>
+    <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
+    <script src="./script.js" defer></script>
 </head>
 
 <body class="container-fluid">
-<!--     <div id="loader"></div> -->
-    <div class="head">
-       <div id="first">
-            <img class="ms-3" width="130px" height="70px" src="./images/Png Gif 8sec.gif">
-            <a class="crypto" href="./index.html"> <img id="imgcry" class="ms-3" width="130px" height="70px"
-                    src="./images/crypto.png"></a>
-        </div>
-        <div id="second">
-            <div class=" w-50  mt-3">
-                <div class="input-group">
-                    <span class="input-group-text"> <img width="20px" height="20px" src="./images/search.jfif"></span>
-                    <input onkeyup="myFunction()" id="searchbox" class="form-control" type="text"
-                        placeholder="Search here">
+    <!--     <div id="loader"></div> -->
+    <header>
+        <div class="head">
+            <div id="first">
+                <img class="ms-3" width="130px" height="70px" src="./images/Png Gif 8sec.gif">
+                <a class="crypto" href="./index.html"> <img id="imgcry" class="ms-3" width="130px" height="70px"
+                        src="./images/crypto.png"></a>
+            </div>
+            <div id="second">
+                <div class=" w-50  mt-3">
+                    <div class="input-group">
+                        <span class="input-group-text"> <img width="20px" height="20px"
+                                src="./images/search.jfif"></span>
+                        <input onkeyup="myFunction()" id="searchbox" class="form-control" type="text"
+                            placeholder="Search here">
+                    </div>
+                </div>
+                <div id="third" class="me-1 mt-3 ">
+                    <button class="btn btn-danger" id="login" onclick="btnClick(this.id)">Login</button>
+                    <button class="btn btn-success" id="signup" onclick="btnClick(this.id)">Sign up</button>
+                    <!-- <button class="btn btn-info">Filter</button> -->
+                    <button type="button" id="filter" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Filter
+                    </button>
                 </div>
             </div>
-            <div id="third" class="me-1 mt-3 ">
-                <button class="btn btn-danger" id="login" onclick="btnClick(this.id)">Login</button>
-                <button class="btn btn-success" id="signup" onclick="btnClick(this.id)">Sign up</button>
-                <!-- <button class="btn btn-info">Filter</button> -->
-                <button type="button" id="filter" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop">
-                    Filter
-                </button>
-            </div>
         </div>
-    </div>
+    </header>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -64,33 +68,42 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="checkrange"   onclick="rangeclick()" type="button" class="btn btn-primary">Check Range</button>
+                    <button id="checkrange" onclick="rangeclick()" type="button" class="btn btn-primary">Check
+                        Range</button>
                 </div>
             </div>
         </div>
     </div>
+    <section class="row">
 
-    <table class="table table-borderless" id="mytable">
-        <thead>
-            <tr>
-                 <th>Rank</th>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Code</th>
-                <th>Price</th>
-                <th>Volume 24h</th>
-                <th>Market Cap</th>
-                <th>1h</th>
-                <th>24h</th>
-                <th>Weekly</th>
-            </tr>
-        </thead>
-        <tbody id="bodydata"></tbody>
-    </table>
-    <h2 id="noresults" style="text-align: center;"></h2>
+        <div class="col-10">
+            <table class="table table-borderless" id="mytable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Crypto Currency</th>
+                        <th>Price</th>
+                        <th>Volume 24h</th>
+                        <th>Market Cap</th>
+                        <th>1h</th>
+                        <th>24h</th>
+                        <th>Weekly</th>
+                    </tr>
+                </thead>
+                <tbody id="bodydata"></tbody>
+            </table>
+            <h2 id="noresults" style="text-align: center;"></h2>
+        </div>
+        <div class="col-2">
 
-   
+        </div>
 
+    </section>
+    <footer>
+        <div id="coinmarketcap-widget-marquee" coins="1,1027,825,15888,2010,5426,3794,512" currency="USD" theme="light"
+            transparent="false" show-symbol-logo="true"></div>
+    </footer>
 </body>
 
 </html>
