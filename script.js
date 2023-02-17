@@ -32,8 +32,7 @@ fetch(new Request("https://api.livecoinwatch.com/coins/list"), {
         <tr>
         <td>${e.rank}</td>
         <td>${e.name}</td>
-        <td><img height="40px" width="40px" src="${e.png32}"></td>
-        <td>${e.code}</td>
+        <td style="display:flex;"><img class="me-2" height="40px" width="40px" src="${e.png32}"><b style="font-size:13px;">${e.code}</b></td>
         <td>$${e.rate}</td>
         <td>$${e.volume}</td>
         <td>$${e.cap}</td>
