@@ -169,7 +169,7 @@ function myFunction() {
     var table = document.getElementById("bodydata");
     var tr = table.getElementsByTagName("tr");
     for(let i=0;i<table.rows.length;i++){
-      tdPrice = tr[i].getElementsByTagName("td")[5].innerText;
+      tdPrice = tr[i].getElementsByTagName("td")[4].innerText;
       tdPrice=parseInt(tdPrice.slice(1,tdPrice.length));
     
       if((tdPrice >= minValue) && (tdPrice <= maxValue)){
