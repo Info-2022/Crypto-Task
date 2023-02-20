@@ -66,12 +66,12 @@ const getBTC = async () => {
     }).then(res => res.json()).then(data => {
         var count = 0;
         data.forEach((e) =>{
-          tbody.rows[count].getElementsByTagName("td")[4].innerText = `$${e.rate}`;
-          tbody.rows[count].getElementsByTagName("td")[5].innerText = `$${e.volume}`;
-          tbody.rows[count].getElementsByTagName("td")[6].innerText = `$${e.cap}`;
-          tbody.rows[count].getElementsByTagName("td")[7].innerText = `${e.delta.hour}%`;
-          tbody.rows[count].getElementsByTagName("td")[8].innerText = `${e.delta.day}%`;
-          tbody.rows[count].getElementsByTagName("td")[9].innerText = `${e.delta.week}%`;
+          tbody.rows[count].getElementsByTagName("td")[3].innerText = `$${e.rate}`;
+          tbody.rows[count].getElementsByTagName("td")[4].innerText = `$${e.volume}`;
+          tbody.rows[count].getElementsByTagName("td")[5].innerText = `$${e.cap}`;
+          tbody.rows[count].getElementsByTagName("td")[6].innerText = `${e.delta.hour}%`;
+          tbody.rows[count].getElementsByTagName("td")[7].innerText = `${e.delta.day}%`;
+          tbody.rows[count].getElementsByTagName("td")[8].innerText = `${e.delta.week}%`;
           count++;
         })
     });
