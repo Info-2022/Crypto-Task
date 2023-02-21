@@ -9,43 +9,8 @@ function handle(e){
 // crypto page API fetch
 
 const tbody = document.getElementById("bodydata");
+var APIHIT = 1;
 
-fetch(new Request("https://api.livecoinwatch.com/coins/list"), {
-  method: "POST",
-  headers: new Headers({
-    "content-type": "application/json",
-    "x-api-key": "a4c75585-1604-4b98-bfe0-f70811c62424",
-  }),
-  body: JSON.stringify({
-    currency: "USD",
-    sort: "rank",
-    order: "ascending",
-    offset: 0,
-    limit: 50,
-    meta: true,
-  }),
-}).
- then(res => res.json()).then(data => {
-
-      data.forEach(e=>{
-        tbody.innerHTML+=`
-        <tr>
-        <td>${e.rank}</td>
-        <td>${e.name}</td>
-        <td style="display:flex;"><img class="me-2" height="40px" width="40px" src="${e.png32}"><b style="font-size:13px;">${e.code}</b></td>
-        <td>$${e.rate}</td>
-        <td>$${e.volume}</td>
-        <td>$${e.cap}</td>
-        <td>${e.delta.hour}%</td>
-        <td>${e.delta.day}%</td>
-        <td>${e.delta.week}%</td>
-        </tr>
-        
-        `
-      } )     
-});
-
-// Price updation code
 
 const getBTC = async () => {
 
@@ -60,27 +25,50 @@ const getBTC = async () => {
         sort: "rank",
         order: "ascending",
         offset: 0,
-        limit: 50,
+        limit: 100,
         meta: true,
       }),
     }).then(res => res.json()).then(data => {
-        var count = 0;
-        data.forEach((e) =>{
-          tbody.rows[count].getElementsByTagName("td")[3].innerText = `$${e.rate}`;
-          tbody.rows[count].getElementsByTagName("td")[4].innerText = `$${e.volume}`;
-          tbody.rows[count].getElementsByTagName("td")[5].innerText = `$${e.cap}`;
-          tbody.rows[count].getElementsByTagName("td")[6].innerText = `${e.delta.hour}%`;
-          tbody.rows[count].getElementsByTagName("td")[7].innerText = `${e.delta.day}%`;
-          tbody.rows[count].getElementsByTagName("td")[8].innerText = `${e.delta.week}%`;
-          count++;
-        })
+        if(APIHIT === 1){
+        
+           data.forEach(e=>{
+                tbody.innerHTML+=`
+                <tr>
+                <td>${e.rank}</td>
+                <td>${e.name}</td>
+                <td style="display:flex;"><img class="me-2" height="40px" width="40px" src="${e.png32}"><b style="font-size:13px;">${e.code}</b></td>
+                <td>$${e.rate}</td>
+                <td>$${e.volume}</td>
+                <td>$${e.cap}</td>
+                <td>${e.delta.hour}%</td>
+                <td>${e.delta.day}%</td>
+                <td>${e.delta.week}%</td>
+                </tr>
+
+                `
+          } )    
+            
+        }
+        
+        else{
+            var count = 0;
+            data.forEach((e) =>{
+              tbody.rows[count].getElementsByTagName("td")[3].innerText = `$${e.rate}`;
+              tbody.rows[count].getElementsByTagName("td")[4].innerText = `$${e.volume}`;
+              tbody.rows[count].getElementsByTagName("td")[5].innerText = `$${e.cap}`;
+              tbody.rows[count].getElementsByTagName("td")[6].innerText = `${e.delta.hour}%`;
+              tbody.rows[count].getElementsByTagName("td")[7].innerText = `${e.delta.day}%`;
+              tbody.rows[count].getElementsByTagName("td")[8].innerText = `${e.delta.week}%`;
+              count++;
+            })
+        }
     });
  
 }
 
 setInterval(function () {
   getBTC();
-}, 2000);
+}, 1000);
 
 
 // function ff(cp){
