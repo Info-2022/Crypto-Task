@@ -18,7 +18,7 @@ const getBTC = async () => {
       method: "POST",
       headers: new Headers({
         "content-type": "application/json",
-        "x-api-key": "a4c75585-1604-4b98-bfe0-f70811c62424",
+        "x-api-key": "83a4d4c8-31b7-42ff-a467-3275271d4483",
       }),
       body: JSON.stringify({
         currency: "USD",
@@ -37,9 +37,9 @@ const getBTC = async () => {
                 <td>${e.rank}</td>
                 <td>${e.name}</td>
                 <td style="display:flex;"><img class="me-2" height="40px" width="40px" src="${e.png32}"><b style="font-size:13px;">${e.code}</b></td>
-                <td>$${e.rate}</td>
-                <td>$${e.volume}</td>
-                <td>$${e.cap}</td>
+                <td>$${e.rate.toFixed(2)}</td>
+                <td>$${(e.volume/1000000000).toFixed(2)} B</td>
+                <td>$${(e.cap/1000000000).toFixed(2)} B</td>
                 <td>${e.delta.hour}%</td>
                 <td>${e.delta.day}%</td>
                 <td>${e.delta.week}%</td>
@@ -54,9 +54,9 @@ const getBTC = async () => {
         else{
             var count = 0;
             data.forEach((e) =>{
-              tbody.rows[count].getElementsByTagName("td")[3].innerText = `$${e.rate}`;
-              tbody.rows[count].getElementsByTagName("td")[4].innerText = `$${e.volume}`;
-              tbody.rows[count].getElementsByTagName("td")[5].innerText = `$${e.cap}`;
+              tbody.rows[count].getElementsByTagName("td")[3].innerText = `$${e.rate.toFixed(2)}`;
+              tbody.rows[count].getElementsByTagName("td")[4].innerText = `$${(e.volume/1000000000).toFixed(2)} B`;
+              tbody.rows[count].getElementsByTagName("td")[5].innerText = `$${(e.cap/1000000000).toFixed(2)} B`;
               tbody.rows[count].getElementsByTagName("td")[6].innerText = `${e.delta.hour}%`;
               tbody.rows[count].getElementsByTagName("td")[7].innerText = `${e.delta.day}%`;
               tbody.rows[count].getElementsByTagName("td")[8].innerText = `${e.delta.week}%`;
