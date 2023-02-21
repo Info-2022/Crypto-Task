@@ -46,7 +46,8 @@ const getBTC = async () => {
                 </tr>
 
                 `
-          } )    
+          } )   
+            APIHIT++;
             
         }
         
@@ -61,6 +62,7 @@ const getBTC = async () => {
               tbody.rows[count].getElementsByTagName("td")[8].innerText = `${e.delta.week}%`;
               count++;
             })
+            APIHIT++;
         }
     });
  
