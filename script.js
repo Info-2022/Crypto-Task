@@ -44,9 +44,9 @@ const getBTC = async () => {
                 <td>$${e.rate.toFixed(2)}</td>
                 <td>$${(e.volume/1000000000).toFixed(2)} B</td>
                 <td>$${(e.cap/1000000000).toFixed(2)} B</td>
-                <td>${e.delta.hour}%</td>
-                <td>${e.delta.day}%</td>
-                <td>${e.delta.week}%</td>
+                <td>${e.delta.hour.toFixed(3)}</td>
+                <td>${e.delta.day.toFixed(3)}</td>
+                <td>${e.delta.week.toFixed(3)}</td>
                 </tr>
 
                 `;
@@ -69,24 +69,24 @@ const getBTC = async () => {
               tbody.rows[count].getElementsByTagName("td")[5].innerText = `$${(e.cap/1000000000).toFixed(2)} B`;
                 
               if(hrArr[count] > e.delta.hour){
-                tbody.rows[count].getElementsByTagName("td")[6].innerHTML = `<span style='color:red'> 🔻${e.delta.hour}</span>`;
+                tbody.rows[count].getElementsByTagName("td")[6].innerHTML = `<span style='color:red'><img src="./images/red-triangle-pointed-down_1f53b.png" height="9px" /> ${e.delta.hour.toFixed(3)}</span>`;
               }
               else{
-                tbody.rows[count].getElementsByTagName("td")[6].innerHTML =  `<span style='color:green'><img src="./images/icons8-triangle-arrow-24.png" height="9px" /> ${e.delta.hour}</span>`;
+                tbody.rows[count].getElementsByTagName("td")[6].innerHTML =  `<span style='color:green'><img src="./images/icons8-triangle-arrow-24.png" height="9px" /> ${e.delta.hour.toFixed(3)}</span>`;
               }
 
               if(dayArr[count] > e.delta.day){
-                tbody.rows[count].getElementsByTagName("td")[7].innerHTML = `<span style='color:red'> 🔻 ${e.delta.day}`;
+                tbody.rows[count].getElementsByTagName("td")[7].innerHTML = `<span style='color:red'><img src="./images/red-triangle-pointed-down_1f53b.png" height="9px" /> ${e.delta.day.toFixed(3)}`;
               }
               else{
-                tbody.rows[count].getElementsByTagName("td")[7].innerHTML = `<span style='color:green'><img src="./images/icons8-triangle-arrow-24.png" height="9px" /> ${e.delta.day}`;
+                tbody.rows[count].getElementsByTagName("td")[7].innerHTML = `<span style='color:green'><img src="./images/icons8-triangle-arrow-24.png" height="9px" /> ${e.delta.day.toFixed(3)}`;
               }
         
              if(weekArr[count] > e.delta.week){
-                 tbody.rows[count].getElementsByTagName("td")[8].innerHTML = `<span style='color:red'> 🔻 ${e.delta.week}`;
+                 tbody.rows[count].getElementsByTagName("td")[8].innerHTML = `<span style='color:red'><img src="./images/red-triangle-pointed-down_1f53b.png" height="9px" /> ${e.delta.week.toFixed(3)}`;
              }
              else{
-                 tbody.rows[count].getElementsByTagName("td")[8].innerHTML = `<span style='color:green'><img src="./images/icons8-triangle-arrow-24.png" height="9px" /> ${e.delta.week}`;
+                 tbody.rows[count].getElementsByTagName("td")[8].innerHTML = `<span style='color:green'><img src="./images/icons8-triangle-arrow-24.png" height="9px" /> ${e.delta.week.toFixed(3)}`;
              }
                 
              count++;
