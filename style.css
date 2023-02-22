@@ -1,42 +1,7 @@
-/* #loader {
-    background: #fff url(./images/loading3.gif) no-repeat center center;
-    background-size: 30%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100vh;
-    z-index: 100;
-} */
-
-#maindiv {
-    width: 300px;
-    height: auto;
-    padding: 40px;
-    margin-left: 520px;
-    margin-top: 100px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    background-color: rgb(218, 213, 213);
-    box-shadow:6px 6px 10px white;
-
-}
-
-#note {
-    text-align: center;
-    font-size: 15px;
-    margin-top: 13px;
-    color: white;
-}
-
-#maindiv h3 {
-    text-align: center;
-}
-
-.head {
-    display: flex;
-    justify-content: space-between;
+/* header part css */
+header {
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
     background-image: url(./images/backg.avif);
     background-size: 1500px;
     background-repeat: no-repeat;
@@ -44,119 +9,359 @@
     margin-bottom: 10px;
     padding: 15px;
     position: sticky;
-    top: 0px;
-}
-.crypto{
-    margin-left: 300px;
+    top: 1
 }
 
-input#searchbox {
-    cursor: pointer;
-}
-
-#second {
-    display: flex;
-    justify-content: space-between;
+#login:hover {
+    background-color: red;
+    background-image: linear-gradient(to right, red, yellow);
 
 }
 
-#third {
+#signup:hover {
+    background-color: green;
+    background-image: linear-gradient(to right, green, yellow);
 
-    justify-content: space-between;
 }
 
-#btn11 {
+#filter:hover {
+    background-color: blue;
+    background-image: linear-gradient(to right, blue, yellow);
 
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
 }
 
-#range {
-    display: flex;
-}
 
-#ancher a {
+/* body data links */
+
+a {
     color: black;
     text-decoration: none;
 }
 
-#ancher a:hover {
+a:hover {
     color: blue;
     text-decoration: underline;
 }
-.main {
-    background-color: rgb(255, 236, 213);
+
+/* Fetching data css code */
+#btcsymbol {
+    margin-top: -40px;
+    margin-left: 45px;
+    color: black;
+    font-size: 14px;
 }
 
-#login:hover {
-    background-color: rgb(253, 252, 252);
-    color: orangered;
+#btcname {
+    margin-left: 45px;
+    color: black;
+    font-size: 14px;
 }
 
-#signup:hover {
-    background-color: rgb(253, 252, 252);
-    color: green;
+a {
+    text-decoration: none;
 }
 
-#filter:hover {
-    background-color: rgb(253, 252, 252);
+/* login  code */
+#note {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 13px;
+    background-color: yellow;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+#forget {
+    text-decoration: none;
+}
+
+#forget:hover {
+    text-decoration: underline;
     color: blue;
-
 }
 
-.loginbody {
-    background-image: url(./images/loginback.jpg);
+/* signup  code */
+
+.gradient-custom-3 {
+
+    background: #84fab0;
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
 }
 
-.signupbody {
-    background-image: url(./images/signupback.webp);
+#signupsubmit:hover {
+    background: #84fab0;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+    color: black;
 }
+
+#signupsubmit {
+    text-decoration: none;
+}
+
+.cancel {
+    color: white;
+}
+
+/* buttons css */
 
 #cancel:hover {
-    background-color: rgb(121, 5, 5);
+
+    color: black;
+    background: #f58968;
+    background: linear-gradient(to right, rgba(250, 122, 176, 0.5), rgba(211, 131, 234, 0.5))
 }
 
-#loginsubmit:hover,
-#signupsubmit:hover,
-#checkrange:hover {
+.log:hover {
+    color: black;
+    background: #593ef0;
+    background: linear-gradient(to right, rgba(120, 42, 250, 0.5), rgba(181, 231, 250, 0.5))
+}
+
+#facebook:hover,
+#twitter:hover,
+#insta:hover {
     background-color: rgb(5, 5, 109);
 }
 
-header {
-    position: sticky;
-    top: 0px;
+
+
+
+
+
+
+@media screen and (min-width:1200px) and (max-width:1600px) {
+    #first {
+        grid-row: 1;
+        grid-column: 1;
+        display: inline;
+        justify-content: space-between;
+    }
+
+    #cryptoid {
+        margin-left: 100px;
+    }
+
+    #second {
+        grid-row: 1;
+        grid-column: 2;
+        margin-left: 40px;
+    }
+
+    #third {
+        grid-row: 1;
+        grid-column: 3;
+        margin-left: 70px;
+        display: flex;
+        height: 40px;
+        margin-top: 18px;
+    }
+
+    #burger {
+        display: none;
+    }
+
+    #third button {
+        margin-right: 10px;
+    }
+
+    #tablediv {
+        height: 460px;
+
+        overflow: scroll;
+
+    }
+
+    #login {
+        width: 80px;
+    }
+
+    #signup {
+        width: 80px;
+    }
+
+    #filter {
+        width: 80px;
+    }
+
+    .right-img img {
+        width: 200px;
+        height: 220px;
+        margin-bottom: 5px;
+    }
 }
 
-section {
+@media screen and (min-width:768px) and (max-width:1190px) {
 
-    height: 460px;
-    overflow: scroll;
-   
+    #first {
+        grid-row: 1;
+        grid-column: 1;
+        display: flex;
+    }
+
+    #first img {
+        width: 100px;
+        height: 50px;
+        margin-right: 20px;
+    }
+
+    #second {
+        grid-row: 1;
+        grid-column: 2;
+        width: 75%;
+    }
+
+    #third {
+        grid-row: 1;
+        grid-column: 3;
+        margin-left: 6px;
+        display: flex;
+        height: 40px;
+        margin-top: 18px;
+    }
+
+    #third button {
+        margin-right: 6px;
+    }
+
+    #burger {
+        display: none;
+    }
+
+    #slideshow1,
+    #slideshow2 {
+        display: none;
+    }
+
+
+    #tablediv {
+        height: 750px;
+        width: auto;
+        overflow: scroll;
+
+    }
+
+
 }
 
+@media screen and (min-width:479px) and (max-width:767px) {
+
+    #slideshow1,
+    #slideshow2 {
+        display: none;
+    }
+
+    #first {
+        display: flex;
+        grid-row: 1;
+        grid-column: 1/4;
+    }
+
+    #first img {
+        width: 100px;
+        height: 50px;
+    }
+
+    #cryptoid {
+        margin-left: 30px;
+    }
+
+    #second {
+        grid-row: 2;
+        grid-column: 1/4;
+        width: 100%;
+    }
+
+    #mytable {
+        width: auto;
+    }
+
+    #tablediv {
+        height: 500px;
+        width: auto;
+        overflow: scroll;
+    }
+
+    #third {
+        display: none;
+    }
+
+    #burger {
+        grid-row: 3;
+        grid-column: 1/4;
+        width: 100%;
+
+    }
+
+    #menu {
+        margin-top: -45px;
+        margin-left: 80px;
+    }
 
 
-.middle{
-    margin-left: 230px;
-   
 }
-.right{
-  position: fixed;
-    margin-left:1100px;
 
+@media screen and (max-width:480px) and (orientation:portrait) {
+    #first {
+        display: flex;
+        grid-row: 1;
+        grid-column: 1/4;
+    }
+
+    #first img {
+        width: 100px;
+        height: 50px;
+    }
+
+    #cryptoid {
+        margin-left: 30px;
+    }
+
+    #second {
+        grid-row: 2;
+        grid-column: 1/4;
+        width: 100%;
+    }
+
+    #third {
+        display: none;
+    }
+
+    #burger {
+        grid-row: 3;
+        grid-column: 1/4;
+        width: 100%;
+
+    }
+
+    #menu {
+        margin-top: -45px;
+        margin-left: 65px;
+    }
+
+    #mytable {
+        width: auto;
+    }
+
+    #slideshow1,
+    #slideshow2 {
+        display: none;
+    }
+
+    #tablediv {
+        height: 500px;
+        width: auto;
+        overflow: scroll;
+    }
 }
 
-.right-img img{
-    width: 200px;
-    height: 220px;
-    margin-bottom: 5px;
-}
+/* left side animation */
 
-
-/*---------- SLIDE ANIMATION --------------*/
-
-  @keyframes slide_animation {
+@keyframes slide_animation {
     0% {
         left: 0px;
     }
@@ -253,8 +458,8 @@ section {
 .slider-frame {
     overflow: hidden;
     height: 450px;
-    width: 212px;
- 
+    width: 180px;
+
 }
 
 .slide-images {
@@ -280,7 +485,18 @@ section {
     position: relative;
     float: left;
 }
-.left{
-    position: fixed;  
-  
+
+/* right side animation */
+
+#car1 img {
+    overflow: hidden;
+    height: 225px;
+    width: 180px;
+}
+
+#car2 img {
+    margin-top: 6px;
+    overflow: hidden;
+    height: 225px;
+    width: 180px;
 }
