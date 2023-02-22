@@ -35,7 +35,7 @@ const getBTC = async () => {
                 tbody.innerHTML+=`
                 <tr>
                 <td>${e.rank}</td>
-                <td>${e.name}</td>
+               <td><a href="https://coinmarketcap.com/currencies/${e.name}/">${e.name}</a></td>
                 <td style="display:flex;"><img class="me-2" height="40px" width="40px" src="${e.png32}"><b style="font-size:13px;">${e.code}</b></td>
                 <td>$${e.rate.toFixed(2)}</td>
                 <td>$${(e.volume/1000000000).toFixed(2)} B</td>
