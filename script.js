@@ -10,6 +10,9 @@ function handle(e){
 
 const tbody = document.getElementById("bodydata");
 var APIHIT = 1;
+var hrArr = [];
+var dayArr = [];
+var weekArr = [];
 
 
 const getBTC = async () => {
@@ -30,7 +33,8 @@ const getBTC = async () => {
       }),
     }).then(res => res.json()).then(data => {
         if(APIHIT === 1){
-        
+        var count = 0;
+            
            data.forEach(e=>{
                 tbody.innerHTML+=`
                 <tr>
@@ -45,7 +49,13 @@ const getBTC = async () => {
                 <td>${e.delta.week}%</td>
                 </tr>
 
-                `
+                `;
+               
+                hrArr[count] = e.delta.hour;
+                dayArr[count] = e.delta.day;
+                weekArr[count] = e.delta.week;
+
+                count++;
           } )   
             APIHIT++;
             
@@ -57,10 +67,29 @@ const getBTC = async () => {
               tbody.rows[count].getElementsByTagName("td")[3].innerText = `$${e.rate.toFixed(2)}`;
               tbody.rows[count].getElementsByTagName("td")[4].innerText = `$${(e.volume/1000000000).toFixed(2)} B`;
               tbody.rows[count].getElementsByTagName("td")[5].innerText = `$${(e.cap/1000000000).toFixed(2)} B`;
-              tbody.rows[count].getElementsByTagName("td")[6].innerText = `${e.delta.hour}%`;
-              tbody.rows[count].getElementsByTagName("td")[7].innerText = `${e.delta.day}%`;
-              tbody.rows[count].getElementsByTagName("td")[8].innerText = `${e.delta.week}%`;
-              count++;
+                
+              if(hrArr[count] > e.delta.hour){
+                tbody.rows[count].getElementsByTagName("td")[6].innerHTML = `<span style='color:red'> 🔻${e.delta.hour}</span>`;
+              }
+              else{
+                tbody.rows[count].getElementsByTagName("td")[6].innerHTML =  `<span style='color:green'><img src="./images/icons8-triangle-arrow-24.png" height="9px" /> ${e.delta.hour}</span>`;
+              }
+
+              if(dayArr[count] > e.delta.day){
+                tbody.rows[count].getElementsByTagName("td")[7].innerHTML = `<span style='color:red'> 🔻 ${e.delta.day}`;
+              }
+              else{
+                tbody.rows[count].getElementsByTagName("td")[7].innerHTML = `<span style='color:green'><img src="./images/icons8-triangle-arrow-24.png" height="9px" /> ${e.delta.day}`;
+              }
+        
+             if(weekArr[count] > e.delta.week){
+                 tbody.rows[count].getElementsByTagName("td")[8].innerHTML = `<span style='color:red'> 🔻 ${e.delta.week}`;
+             }
+             else{
+                 tbody.rows[count].getElementsByTagName("td")[8].innerHTML = `<span style='color:green'><img src="./images/icons8-triangle-arrow-24.png" height="9px" /> ${e.delta.week}`;
+             }
+                
+             count++;
             })
             APIHIT++;
         }
