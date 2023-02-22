@@ -21,7 +21,7 @@ const getBTC = async () => {
       method: "POST",
       headers: new Headers({
         "content-type": "application/json",
-        "x-api-key": "83a4d4c8-31b7-42ff-a467-3275271d4483",
+        "x-api-key": "a4c75585-1604-4b98-bfe0-f70811c62424",
       }),
       body: JSON.stringify({
         currency: "USD",
